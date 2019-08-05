@@ -64,7 +64,7 @@ export default {
   name: "MyLayout",
   data() {
     return {
-      octocat: "assets/octocat.png"
+      octocat: require("../assets/octocat.png")
     };
   },
   methods: {
