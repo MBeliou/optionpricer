@@ -49,7 +49,11 @@ module.exports = function(ctx) {
         // FORM
         "QForm",
         "QInput",
-        "QBtnToggle"
+        "QBtnToggle",
+
+        "QSeparator",
+        "QSpace",
+        "QImg"
       ],
 
       directives: ["Ripple"],

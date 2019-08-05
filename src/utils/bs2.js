@@ -8,7 +8,7 @@ export function BlackScholes(S, X, T, r, v) {
   };
 }
 
-/* The cummulative Normal distribution function: */
+/* The cumulative Normal distribution function: */
 function CND(x) {
   if (x < 0) {
     return 1 - CND(-x);

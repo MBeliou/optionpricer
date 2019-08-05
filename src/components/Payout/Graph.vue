@@ -29,18 +29,39 @@ export default {
         splitLine: {
           show: false
         }
-      },
-
-      // TODO: link to props
-      seriesData: [2, 3, 2, 6, 3, 6, 3]
+      }
     };
   },
   computed: {
-    xAxis() {
-      const data =
-        Object.keys(this.input["pricesUnderlying"]).length > 0
-          ? this.input["pricesUnderlying"]
+    optionPayoff() {
+      try {
+        return Object.keys(this.input["profitOption"]).length > 0
+          ? this.input["profitOption"]
           : [];
+      } catch {
+        return [];
+      }
+    },
+    underlyingPayoff() {
+      try {
+        return Object.keys(this.input["payoffUnderlying"]).length > 0
+          ? this.input["payoffUnderlying"]
+          : [];
+      } catch {
+        return [];
+      }
+    },
+    xAxis() {
+      let data = [];
+      try {
+        data =
+          Object.keys(this.input["pricesUnderlying"]).length > 0
+            ? this.input["pricesUnderlying"]
+            : [];
+      } catch {
+        data = [];
+      }
+
       return {
         type: "category",
         data: data,
@@ -57,10 +78,7 @@ export default {
         series: [
           {
             name: "Option Payoff",
-            data:
-              Object.keys(this.input["profitOption"]).length > 0
-                ? this.input["profitOption"]
-                : [],
+            data: this.optionPayoff,
             type: "line",
             smooth: false,
             tooltip: {
@@ -69,10 +87,7 @@ export default {
           },
           {
             name: "Payoff Underlying",
-            data:
-              Object.keys(this.input["payoffUnderlying"]).length > 0
-                ? this.input["payoffUnderlying"]
-                : [],
+            data: this.underlyingPayoff,
             type: "line",
             smooth: false,
             tooltip: {
