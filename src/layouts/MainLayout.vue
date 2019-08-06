@@ -2,22 +2,30 @@
   <q-layout view="lHh Lpr lFf">
     <div class="row">
       <div class="col-md-2 col-sm-12 sidebar">
-        <div class="text-center q-py-lg">
+        <div
+          id="github-container"
+          class="text-center q-mt-md q-mx-lg cursor-pointer q-pt-sm"
+          @click="navigateTo(repoLink)"
+        >
           <q-img
             :src="octocat"
             style="height:50px; width:50px;"
+            class="q-pd-md"
           >
           </q-img>
+          <p
+            class="q-mt-sm q-pb-sm"
+            id="github-text"
+          >See me on github!</p>
         </div>
         <q-list
           class="col-sm-6 col-md-12"
-          padding
           dark
         >
           <q-item-label
             header
             id="header-sidebar"
-            class="text-center q-pb-sm"
+            class="text-center q-py-sm"
           >Option Pricer</q-item-label>
           <q-separator class="q-my-md invisible"></q-separator>
           <q-item
@@ -93,6 +101,7 @@ export default {
   data() {
     return {
       octocat: require("../assets/octocat.png"),
+      repoLink: "https://github.com/MBeliou/optionpricer",
       active: "home"
     };
   },
@@ -100,14 +109,20 @@ export default {
     goto(url) {
       this.active = url;
       this.$router.push(`/${url}`);
+    },
+    navigateTo(url) {
+      window.open(url, "_blank");
     }
+  },
+  beforeCreate() {
+    this.$store.dispatch("INITIALIZE_STORE");
   }
 };
 </script>
 
 <style lang="stylus">
 #page-container {
-  max-width: 1080px;
+  max-width: 1040px;
   margin: 0 auto;
 }
 
@@ -119,10 +134,10 @@ export default {
   color: $indigo-8;
   width: 100%;
   background-color: white;
-  font-weight: bolder;
+  font-weight: bold;
   text-transform: uppercase;
-  margin: 0 auto;
-  font-size: 16px;
+  font-size: 18px;
+  font-family: 'Martel Sans', sans-serif;
 }
 
 .sidebar-router-btn {
@@ -132,6 +147,19 @@ export default {
 
 .active-router {
   background: linear-gradient(90deg, $deep-purple-8, hsla(280, 79%, 73%, 0.1), 99%, white 1%);
+}
+
+#github-text {
+  color: white;
+  font-weight: bold;
+}
+
+#github-container {
+  border-radius: 50%;
+}
+
+#github-container:hover {
+  background-color: hsla(191, 63, 63, 0.2);
 }
 
 :root {

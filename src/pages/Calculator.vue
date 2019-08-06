@@ -44,54 +44,10 @@
           </div>
           <q-form
             @submit="onSubmit"
-            class="q-px-lg q-py-md"
+            class="q-px-lg q-py-lg"
             id="input-form"
           >
-            <q-input
-              label="Underlying Price"
-              v-model.number="underlying"
-              color="indigo-8"
-              min=0
-              step="0.01"
-              :rules="[val => val && val !== 0 && typeof val === 'number' || 'Please enter a valid number']"
-            >
-            </q-input>
-            <q-input
-              label="Time to expiry"
-              min=0
-              color="indigo-8"
-              suffix="Days"
-              v-model.number="expiry"
-              :rules="[val => val && val !== 0 && typeof val === 'number' || 'Please enter a valid expiration time']"
-            />
-            <q-input
-              label="Strike"
-              step="0.01"
-              color="indigo-8"
-              min=0
-              v-model.number="strike"
-              :rules="[val => val && val !== 0 && typeof val === 'number' || 'Please enter a valid strike']"
-            >
-            </q-input>
-            <q-input
-              label="Interest Rates"
-              suffix="%"
-              step="0.01"
-              color="indigo-8"
-              min=0
-              v-model.number="rate"
-              :rules="[val => val && val !== 0 && typeof val === 'number' || 'Please enter a valid rate']"
-            />
-            <q-input
-              label="Volatility"
-              suffix="%"
-              color="indigo-8"
-              step="0.01"
-              min=0
-              v-model.number="volatility"
-              :rules="[val => val && val !== 0 && typeof val === 'number' || 'Please enter a valid volatility']"
-            />
-            <div class="text-center">
+            <div class="text-center q-mb-md">
               <q-btn-toggle
                 v-model="optionType"
                 toggle-color="indigo-8"
@@ -101,19 +57,79 @@
       ]"
               />
             </div>
+            <q-input
+              label="Underlying Price"
+              dense
+              v-model.number="underlying"
+              color="indigo-8"
+              min=0
+              step="0.01"
+              :rules="[val => val && val !== 0 && typeof val === 'number' || 'Please enter a valid number']"
+            >
+            </q-input>
+            <q-input
+              label="Strike"
+              dense
+              step="0.01"
+              color="indigo-8"
+              min=0
+              v-model.number="strike"
+              :rules="[val => val && val !== 0 && typeof val === 'number' || 'Please enter a valid strike']"
+            >
+            </q-input>
+            <q-input
+              label="Time to expiry"
+              dense
+              min=0
+              color="indigo-8"
+              suffix="Days"
+              v-model.number="expiry"
+              :rules="[val => val && val !== 0 && typeof val === 'number' || 'Please enter a valid expiration time']"
+            />
+
+            <q-input
+              label="Interest Rates"
+              dense
+              suffix="%"
+              step="0.01"
+              color="indigo-8"
+              min=0
+              v-model.number="rate"
+              :rules="[val => val && val !== 0 && typeof val === 'number' || 'Please enter a valid rate']"
+            />
+            <q-input
+              label="Volatility"
+              dense
+              suffix="%"
+              color="indigo-8"
+              step="0.01"
+              min=0
+              v-model.number="volatility"
+              :rules="[val => val && val !== 0 && typeof val === 'number' || 'Please enter a valid volatility']"
+            />
             <div class="text-center">
               <q-btn
                 label="Calculate"
                 type="submit"
                 color="indigo-8"
-                class="q-mt-md"
+                class="text-bold"
               />
+            </div>
+            <q-separator class="q-my-sm invisible" />
+            <div
+              id="option-container"
+              class="col-12 text-center q-pa-sm"
+            >
+              This option is worth: {{ optionPrice.toFixed(2) }}$
             </div>
           </q-form>
         </div>
         <q-space />
         <div class="col-md-8 col-sm-12">
-          <graph :input="graphValues"></graph>
+          <graph
+            :input="graphValues"
+            class="q-pa-sm col-12"
+          ></graph>
         </div>
       </q-card-section>
     </q-card>
@@ -181,11 +197,11 @@ export default {
 #input-header {
   color: $indigo-8;
   background-color: $blue-grey-1;
-  letter-spacing: 0.05em;
   border-radius: 25px;
   max-width: 150px;
   margin: 0 auto;
   margin-bottom: 8px;
+  font-family: 'Martel Sans', sans-serif;
 }
 
 #input-form {
@@ -195,6 +211,17 @@ export default {
   border-radius: 25px;
   margin: 0 auto;
   margin-bottom: 8px;
+}
+
+#option-container {
+  color: $indigo-8;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: white;
+  max-width: 300px;
+  margin: 0 auto;
+  border-radius: 25px;
+  border: 1px solid $indigo-8;
 }
 
 #card-calculator {

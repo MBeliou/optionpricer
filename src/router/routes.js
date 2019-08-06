@@ -5,6 +5,7 @@ const routes = [
     children: [
       { path: "/home", component: () => import("pages/Calculator.vue") },
       { path: "/news", component: () => import("pages/NewsPage.vue") },
+      { path: "/about", component: () => import("pages/AboutPage.vue") },
       { path: "/", redirect: "/home" }
     ]
   }

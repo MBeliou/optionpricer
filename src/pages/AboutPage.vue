@@ -1,13 +1,13 @@
 <template>
   <q-page padding>
-    <!-- content -->
+    About page good stuff
   </q-page>
 </template>
 
 <script>
 export default {
-  // name: 'PageName',
-}
+  name: "AboutPage"
+};
 </script>
 
 <style>

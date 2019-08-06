@@ -45,17 +45,21 @@ export default {
   methods: {
     async updateGoogleNews() {
       // Check last update
-      const delay = 30 * 1000; // 30 seconds
+      const delay = 300 * 1000; // 300 seconds = 5 minutes
       const now = Date.now();
       if (now < this.timestamp + delay) {
         // Not enough delay
-        console.log("not enough delay to update store");
+        // console.log("Not enough delay to update store");
         return;
       }
       const parser = RSSParser();
-      const news = await parser.getGoogleNews();
-      this.$store.dispatch("SET_GOOGLE_NEWS", news);
-      this.$store.dispatch("SET_TIMESTAMP", now);
+      try {
+        const news = await parser.getGoogleNews();
+        this.$store.dispatch("SET_GOOGLE_NEWS", news);
+        this.$store.dispatch("SET_TIMESTAMP", now);
+      } catch (error) {
+        console.error("Couldn't get the news");
+      }
     }
   },
   async mounted() {

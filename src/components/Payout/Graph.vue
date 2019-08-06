@@ -15,20 +15,16 @@ export default {
   data() {
     return {
       grid: {
-        top: 20,
-        bottom: 20,
+        top: 30,
+        bottom: 60,
         left: 30,
         right: 30
       },
       tooltip: {
-        trigger: "axis",
-        formatter: "{b0}: {c0}$<br />{b1}: {c1}$"
+        trigger: "axis"
       },
       yAxis: {
-        type: "value",
-        splitLine: {
-          show: false
-        }
+        type: "value"
       }
     };
   },
@@ -75,6 +71,15 @@ export default {
         tooltip: this.tooltip,
         grid: this.grid,
         areaStyle: this.areaStyle,
+        title: {
+          left: "center",
+          text: "Option Payoff"
+        },
+        legend: {
+          align: "left",
+          bottom: 0,
+          left: "center"
+        },
         series: [
           {
             name: "Option Payoff",
