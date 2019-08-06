@@ -1,12 +1,12 @@
 <template>
   <q-page padding>
     <q-card
-      class="q-mb-lg banner-pwa bg-positive"
+      class="q-mb-lg banner-pwa"
       v-show="seeBanner"
       dark
     >
       <q-card-section class="q-py-sm">
-        <q-item class="q-px-lg">
+        <q-item class="q-px-lg q-py-none">
           <q-item-section
             avatar
             class="q-pl-lg"
@@ -30,19 +30,27 @@
         </q-item>
       </q-card-section>
     </q-card>
-    <q-card>
-      <q-card-section>
-        <div class="card-header"></div>
-      </q-card-section>
+    <q-card
+      flat
+      id="card-calculator"
+    >
       <q-card-section class="row">
-        <div class="col-md-4 col-sm-12">
+        <div class="col-md-4 col-sm-12 q-px-md">
+          <div
+            class="q-mx-lg text-center text-uppercase q-py-sm text-bold"
+            id="input-header"
+          >
+            Input
+          </div>
           <q-form
             @submit="onSubmit"
-            class="q-mx-md"
+            class="q-px-lg q-py-md"
+            id="input-form"
           >
             <q-input
               label="Underlying Price"
               v-model.number="underlying"
+              color="indigo-8"
               min=0
               step="0.01"
               :rules="[val => val && val !== 0 && typeof val === 'number' || 'Please enter a valid number']"
@@ -51,13 +59,15 @@
             <q-input
               label="Time to expiry"
               min=0
-              hint="In days"
+              color="indigo-8"
+              suffix="Days"
               v-model.number="expiry"
               :rules="[val => val && val !== 0 && typeof val === 'number' || 'Please enter a valid expiration time']"
             />
             <q-input
               label="Strike"
               step="0.01"
+              color="indigo-8"
               min=0
               v-model.number="strike"
               :rules="[val => val && val !== 0 && typeof val === 'number' || 'Please enter a valid strike']"
@@ -65,41 +75,43 @@
             </q-input>
             <q-input
               label="Interest Rates"
-              hint="As Percent"
+              suffix="%"
               step="0.01"
+              color="indigo-8"
               min=0
               v-model.number="rate"
               :rules="[val => val && val !== 0 && typeof val === 'number' || 'Please enter a valid rate']"
             />
             <q-input
               label="Volatility"
-              hint="As Percent"
+              suffix="%"
+              color="indigo-8"
               step="0.01"
               min=0
               v-model.number="volatility"
               :rules="[val => val && val !== 0 && typeof val === 'number' || 'Please enter a valid volatility']"
             />
-            <q-item>
-              <q-item-section>
-                <q-btn-toggle
-                  v-model="optionType"
-                  toggle-color="primary"
-                  :options="[
+            <div class="text-center">
+              <q-btn-toggle
+                v-model="optionType"
+                toggle-color="indigo-8"
+                :options="[
         {label: 'Call', value: 'call'},
         {label: 'Put', value: 'put'},
       ]"
-                />
-              </q-item-section>
-              <q-item-section>
-                <q-btn
-                  label="Calculate"
-                  type="submit"
-                  color="primary"
-                />
-              </q-item-section>
-            </q-item>
+              />
+            </div>
+            <div class="text-center">
+              <q-btn
+                label="Calculate"
+                type="submit"
+                color="indigo-8"
+                class="q-mt-md"
+              />
+            </div>
           </q-form>
         </div>
+        <q-space />
         <div class="col-md-8 col-sm-12">
           <graph :input="graphValues"></graph>
         </div>
@@ -120,12 +132,12 @@ export default {
   data() {
     return {
       seeBanner: true,
-      underlying: 16.8,
-      expiry: 10,
-      strike: 16,
+      underlying: 100,
+      expiry: 30,
+      strike: 100,
       optionType: "call",
       rate: 5,
-      volatility: 5,
+      volatility: 25,
 
       graphValues: {},
       optionPrice: 0
@@ -158,11 +170,35 @@ export default {
 };
 </script>
 
-<style lanng="stylus">
+<style lang="stylus">
 .banner-pwa {
   max-width: 600px;
   margin-right: auto;
   margin-left: auto;
+  background-color: $indigo-8;
+}
+
+#input-header {
+  color: $indigo-8;
+  background-color: $blue-grey-1;
+  letter-spacing: 0.05em;
+  border-radius: 25px;
+  max-width: 150px;
+  margin: 0 auto;
+  margin-bottom: 8px;
+}
+
+#input-form {
+  color: $indigo-8;
+  background-color: $blue-grey-1;
+  letter-spacing: 0.05em;
+  border-radius: 25px;
+  margin: 0 auto;
+  margin-bottom: 8px;
+}
+
+#card-calculator {
+  border-radius: 25px;
 }
 
 .banner-text {

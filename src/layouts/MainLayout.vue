@@ -14,10 +14,18 @@
           padding
           dark
         >
+          <q-item-label
+            header
+            id="header-sidebar"
+            class="text-center q-pb-sm"
+          >Option Pricer</q-item-label>
+          <q-separator class="q-my-md invisible"></q-separator>
           <q-item
             clickable
             v-ripple
+            @click="goto('home')"
             style="color: white;"
+            :class="active==='home' ? 'active-router' : ''"
           >
             <q-item-section avatar>
               <q-icon
@@ -35,6 +43,8 @@
             clickable
             v-ripple
             style="color: white;"
+            @click="goto('news')"
+            :class="active==='news' ? 'active-router' : ''"
           >
             <q-item-section avatar>
               <q-icon
@@ -45,6 +55,24 @@
             </q-item-section>
             <q-item-section class="text-bold text-subtitle1 text-uppercase q-ml-lg">
               News
+            </q-item-section>
+          </q-item>
+          <q-item
+            clickable
+            v-ripple
+            style="color: white;"
+            @click="goto('about')"
+            :class="active==='about' ? 'active-router' : ''"
+          >
+            <q-item-section avatar>
+              <q-icon
+                name="code"
+                color="white"
+                class="q-ml-lg"
+              />
+            </q-item-section>
+            <q-item-section class="text-bold text-subtitle1 text-uppercase q-ml-lg">
+              About
             </q-item-section>
           </q-item>
 
@@ -64,12 +92,14 @@ export default {
   name: "MyLayout",
   data() {
     return {
-      octocat: require("../assets/octocat.png")
+      octocat: require("../assets/octocat.png"),
+      active: "home"
     };
   },
   methods: {
     goto(url) {
-      this.$router.push(url);
+      this.active = url;
+      this.$router.push(`/${url}`);
     }
   }
 };
@@ -85,9 +115,23 @@ export default {
   background-color: $deep-purple-8;
 }
 
+#header-sidebar {
+  color: $indigo-8;
+  width: 100%;
+  background-color: white;
+  font-weight: bolder;
+  text-transform: uppercase;
+  margin: 0 auto;
+  font-size: 16px;
+}
+
 .sidebar-router-btn {
   color: white;
   font-weight: bold;
+}
+
+.active-router {
+  background: linear-gradient(90deg, $deep-purple-8, hsla(280, 79%, 73%, 0.1), 99%, white 1%);
 }
 
 :root {
