@@ -70,7 +70,7 @@ export default {
 
 <style lang="stylus">
 #header-news {
-  background-color: $indigo-8;
+  background-color: $deep-purple-8;
   color: white;
   font-weight: bold;
   text-transform: uppercase;

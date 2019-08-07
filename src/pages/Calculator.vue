@@ -35,7 +35,7 @@
       id="card-calculator"
     >
       <q-card-section class="row">
-        <div class="col-md-4 col-sm-12 q-px-md">
+        <div class="col-md-4 col-xs-12 q-px-md">
 
           <q-form
             @submit="onSubmit"
@@ -45,7 +45,7 @@
             <div class="text-center q-mb-md">
               <q-btn-toggle
                 v-model="optionType"
-                toggle-color="indigo-8"
+                toggle-color="deep-purple-8"
                 :options="[
         {label: 'Call', value: 'call'},
         {label: 'Put', value: 'put'},
@@ -56,7 +56,7 @@
               label="Underlying Price"
               dense
               v-model.number="underlying"
-              color="indigo-8"
+              color="deep-purple-8"
               min=0
               step="0.01"
               :rules="[val => val && val !== 0 && typeof val === 'number' || 'Please enter a valid number']"
@@ -66,7 +66,7 @@
               label="Strike"
               dense
               step="0.01"
-              color="indigo-8"
+              color="deep-purple-8"
               min=0
               v-model.number="strike"
               :rules="[val => val && val !== 0 && typeof val === 'number' || 'Please enter a valid strike']"
@@ -76,7 +76,7 @@
               label="Time to expiry"
               dense
               min=0
-              color="indigo-8"
+              color="deep-purple-8"
               suffix="Days"
               v-model.number="expiry"
               :rules="[val => val && val !== 0 && typeof val === 'number' || 'Please enter a valid expiration time']"
@@ -87,7 +87,7 @@
               dense
               suffix="%"
               step="0.01"
-              color="indigo-8"
+              color="deep-purple-8"
               min=0
               v-model.number="rate"
               :rules="[val => val && val !== 0 && typeof val === 'number' || 'Please enter a valid rate']"
@@ -96,7 +96,7 @@
               label="Volatility"
               dense
               suffix="%"
-              color="indigo-8"
+              color="deep-purple-8"
               step="0.01"
               min=0
               v-model.number="volatility"
@@ -106,7 +106,7 @@
               <q-btn
                 label="Calculate"
                 type="submit"
-                color="indigo-8"
+                color="deep-purple-8"
                 class="text-bold"
               />
             </div>
@@ -120,7 +120,7 @@
           </q-form>
         </div>
         <q-space />
-        <div class="col-md-8 col-sm-12">
+        <div class="col-md-8 col-xs-12">
           <graph
             :input="graphValues"
             class="q-pa-sm col-12"
@@ -186,11 +186,11 @@ export default {
   max-width: 600px;
   margin-right: auto;
   margin-left: auto;
-  background-color: $indigo-8;
+  background-color: $deep-purple-8;
 }
 
 #input-header {
-  color: $indigo-8;
+  color: $deep-purple-8;
   background-color: $blue-grey-1;
   border-radius: 25px;
   max-width: 150px;
@@ -200,7 +200,7 @@ export default {
 }
 
 #input-form {
-  color: $indigo-8;
+  color: $deep-purple-8;
   background-color: $blue-grey-1;
   letter-spacing: 0.05em;
   border-radius: 25px;
@@ -209,14 +209,14 @@ export default {
 }
 
 #option-container {
-  color: $indigo-8;
+  color: $deep-purple-8;
   text-transform: uppercase;
   font-weight: bold;
   background-color: white;
   max-width: 300px;
   margin: 0 auto;
   border-radius: 25px;
-  border: 1px solid $indigo-8;
+  border: 1px solid $deep-purple-8;
 }
 
 #card-calculator {
