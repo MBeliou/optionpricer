@@ -1,6 +1,15 @@
 <template>
   <q-page padding>
-    About page good stuff
+    <q-card>
+      <q-card-section>About Me</q-card-section>
+      <q-card-section>
+      </q-card-section>
+    </q-card>
+    <q-card>
+      <q-card-section>How can this website work offline?</q-card-section>
+      <q-card-section>
+      </q-card-section>
+    </q-card>
   </q-page>
 </template>
 

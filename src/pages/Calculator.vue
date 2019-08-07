@@ -1,11 +1,11 @@
 <template>
   <q-page padding>
     <q-card
-      class="q-mb-lg banner-pwa"
+      class="q-mb-md q-mt-sm banner-pwa"
       v-show="seeBanner"
       dark
     >
-      <q-card-section class="q-py-sm">
+      <q-card-section class="q-py-xs">
         <q-item class="q-px-lg q-py-none">
           <q-item-section
             avatar
@@ -36,12 +36,7 @@
     >
       <q-card-section class="row">
         <div class="col-md-4 col-sm-12 q-px-md">
-          <div
-            class="q-mx-lg text-center text-uppercase q-py-sm text-bold"
-            id="input-header"
-          >
-            Input
-          </div>
+
           <q-form
             @submit="onSubmit"
             class="q-px-lg q-py-lg"
@@ -120,7 +115,7 @@
               id="option-container"
               class="col-12 text-center q-pa-sm"
             >
-              This option is worth: {{ optionPrice.toFixed(2) }}$
+              This option is worth: <br>{{ optionPrice.toFixed(2) }} $
             </div>
           </q-form>
         </div>

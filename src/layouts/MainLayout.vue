@@ -16,7 +16,7 @@
           <p
             class="q-mt-sm q-pb-sm"
             id="github-text"
-          >See me on github!</p>
+          >Find me on github!</p>
         </div>
         <q-list
           class="col-sm-6 col-md-12"
@@ -25,7 +25,7 @@
           <q-item-label
             header
             id="header-sidebar"
-            class="text-center q-py-sm"
+            class="text-center q-pb-sm"
           >Option Pricer</q-item-label>
           <q-separator class="q-my-md invisible"></q-separator>
           <q-item
@@ -134,10 +134,12 @@ export default {
   color: $indigo-8;
   width: 100%;
   background-color: white;
-  font-weight: bold;
+  font-weight: bolder;
   text-transform: uppercase;
   font-size: 18px;
   font-family: 'Martel Sans', sans-serif;
+  padding-top: 12px;
+  font-style: italic;
 }
 
 .sidebar-router-btn {
@@ -146,7 +148,7 @@ export default {
 }
 
 .active-router {
-  background: linear-gradient(90deg, $deep-purple-8, hsla(280, 79%, 73%, 0.1), 99%, white 1%);
+  background: linear-gradient(90deg, $indigo-8, hsla(280, 79%, 73%, 0.1), 99%, white 1%);
 }
 
 #github-text {

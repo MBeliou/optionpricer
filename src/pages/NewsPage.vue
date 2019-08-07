@@ -35,7 +35,7 @@ export default {
         return "Querying the latest news...";
       }
       const dateString = new Date(timestamp).toLocaleString();
-      const text = `Last update on ${dateString}`;
+      const text = `Last updated on ${dateString}`;
       return text;
     },
     googleNews() {
