@@ -108,6 +108,9 @@ module.exports = function(ctx) {
         orientation: "portrait",
         background_color: "#ffffff",
         theme_color: "#027be3",
+        workboxOptions: {
+          
+        },
         icons: [
           {
             src: "statics/icons/icon-128x128.png",
