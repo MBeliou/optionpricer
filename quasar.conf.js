@@ -101,16 +101,14 @@ module.exports = function(ctx) {
       // workboxPluginMode: 'InjectManifest',
       // workboxOptions: {}, // only for NON InjectManifest
       manifest: {
-        name: 'OptionPricer',
-        short_name: 'OptionPricer',
-        description: 'A PWA option pricer',
+        name: "Option Pricer",
+        short_name: "OptionPricer",
+        description: "Easily price your options, see their payoff profile and follow the most recent commodity related news.",
         display: "standalone",
         orientation: "portrait",
         background_color: "#ffffff",
         theme_color: "#027be3",
-        workboxOptions: {
-          
-        },
+        workboxOptions: {},
         icons: [
           {
             src: "statics/icons/icon-128x128.png",

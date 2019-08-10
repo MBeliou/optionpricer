@@ -13,7 +13,7 @@
       style="height:2px;"
       inset
     />
-    <q-card-section style="min-height: 90px; max-height:90px;">
+    <q-card-section style="min-height: 90px; max-height:120px;">
       {{description}}
     </q-card-section>
     <q-card-section class="text-right news-card-footer">
@@ -36,7 +36,8 @@ export default {
       return this.NewsItem.title || "";
     },
     date() {
-      const timeDiff = (new Date() - this.NewsItem.date) / 1000 / 3600;
+      const timeDiff =
+        (new Date() - new Date(this.NewsItem.date)) / 1000 / 3600;
       const hours = Math.floor(timeDiff);
       const minutes = ((timeDiff - hours) * 60).toFixed(0);
       if (hours < 1) {

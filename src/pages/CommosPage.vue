@@ -2,13 +2,13 @@
   <q-page padding>
     <div
       id="container-button-commo"
-      class="row q-pb-md"
+      class="row q-pb-md justify-center "
     >
       <div
         v-for="(commo, index) in commodities"
         v-bind:key="index"
         @click="setSelected(commo)"
-        class="button-commo cursor-pointer col q-mx-xs"
+        class="button-commo cursor-pointer col-xs-3 col-md q-mx-xs q-mb-xs"
         :class="{'active-commo': commo===selected}"
       >
         <div
@@ -73,7 +73,7 @@ export default {
   vertical-align: middle;
 }
 
-.button-commo:hover {
+.button-commo:hover:not(.active-commo) {
   background-color: hsla(258, 58%, 42%, 0.6);
 }
 
@@ -83,7 +83,8 @@ export default {
   text-transform: uppercase;
   vertical-align: middle;
   width: 100%;
-  padding-top: 15px;
+  padding-bottom: 5px;
+  padding-top: 10px;
 }
 
 #chart-container {
@@ -93,6 +94,7 @@ export default {
 .active-commo {
   background-color: white;
   border: 2px solid $deep-purple-8;
+  vertical-align: middle;
 }
 
 .active-commo-text {

@@ -8,7 +8,7 @@
         v-for="(newsItem, index) in newsList"
         v-bind:key="index"
         :NewsItem="newsItem"
-        class="col-md-5 col-sm-12 q-ma-sm"
+        class="col-md-5 col-xs-12 q-ma-sm"
       />
     </div>
     <div

@@ -56,7 +56,7 @@
           >
             <q-item-section avatar>
               <q-icon
-                name="account_balance"
+                name="show_chart"
                 color="white"
                 class="q-ml-lg"
               />
