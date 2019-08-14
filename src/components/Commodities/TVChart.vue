@@ -87,7 +87,6 @@ export default {
       });
       const chartIsReady = (await chartObject.id) !== null;
       if (chartIsReady === true) {
-        // this.loading = false;
         const chartContainer = document.getElementById(chartObject.id);
         chartContainer.onload = () => (this.loading = false);
       }

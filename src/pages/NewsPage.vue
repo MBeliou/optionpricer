@@ -20,7 +20,10 @@ import RSSParser from "../utils/rss.js";
 export default {
   name: "NewsPage",
   components: {
-    newsList: () => import("../components/NewsPage/NewsList")
+    newsList: () =>
+      import(
+        /* webpackChunkName: "group-news" */ "../components/NewsPage/NewsList"
+      )
   },
   data() {
     return {};
@@ -48,8 +51,6 @@ export default {
       const delay = 300 * 1000; // 300 seconds = 5 minutes
       const now = Date.now();
       if (now < this.timestamp + delay) {
-        // Not enough delay
-        // console.log("Not enough delay to update store");
         return;
       }
       const parser = RSSParser();

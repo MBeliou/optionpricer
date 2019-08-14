@@ -42,7 +42,10 @@ const COMMODITIES_NAMES = [
 export default {
   name: "CommoditiesPage",
   components: {
-    tvchart: () => import("../components/Commodities/TVChart")
+    tvchart: () =>
+      import(
+        /* webpackChunkName: "group-commos" */ "../components/Commodities/TVChart"
+      )
   },
   data() {
     return {

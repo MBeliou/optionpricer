@@ -5,7 +5,7 @@ module.exports = function(ctx) {
   return {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
-    boot: ["axios", "echarts"],
+    boot: ["axios", "echarts", "addressbar-color"],
 
     css: ["app.styl"],
 
@@ -32,8 +32,6 @@ module.exports = function(ctx) {
         "QHeader",
         "QPageContainer",
         "QPage",
-        "QToolbar",
-        "QToolbarTitle",
         "QBtn",
         "QIcon",
         "QList",
@@ -44,7 +42,6 @@ module.exports = function(ctx) {
         // Card
         "QCard",
         "QCardSection",
-        "QCardActions",
 
         // FORM
         "QForm",
@@ -52,14 +49,10 @@ module.exports = function(ctx) {
         "QBtnToggle",
 
         "QSeparator",
-        "QSpace",
         "QImg"
       ],
 
-      directives: ["Ripple"],
-
-      // Quasar plugins
-      plugins: ["Notify"]
+      directives: ["Ripple"]
     },
 
     supportIE: false,
@@ -68,8 +61,8 @@ module.exports = function(ctx) {
       scopeHoisting: true,
       // vueRouterMode: 'history',
       // vueCompiler: true,
-      // gzip: true,
-      // analyze: true,
+      gzip: true,
+      analyze: true,
       // extractCSS: false,
       extendWebpack(cfg) {
         cfg.module.rules.push({
@@ -103,7 +96,8 @@ module.exports = function(ctx) {
       manifest: {
         name: "Option Pricer",
         short_name: "OptionPricer",
-        description: "Easily price your options, see their payoff profile and follow the most recent commodity related news.",
+        description:
+          "Easily price your options, see their payoff profile and follow the most recent commodity related news.",
         display: "standalone",
         orientation: "portrait",
         background_color: "#ffffff",

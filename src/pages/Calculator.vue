@@ -119,7 +119,6 @@
             </div>
           </q-form>
         </div>
-        <q-space />
         <div class="col-md-8 col-xs-12">
           <graph
             :input="graphValues"
@@ -138,7 +137,8 @@ import { genBuyCall, genBuyPut } from "../utils/options";
 export default {
   name: "CalculatorPage",
   components: {
-    graph: () => import("../components/Payout/Graph.vue")
+    graph: () =>
+      import(/* webpackChunkName: "chart" */ "../components/Payout/Graph.vue")
   },
   data() {
     return {
@@ -157,7 +157,6 @@ export default {
   methods: {
     onSubmit() {
       // Will automatically check the form values before going further
-
       const bs = BlackScholes(
         this.underlying,
         this.strike,
