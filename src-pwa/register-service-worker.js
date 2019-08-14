@@ -25,11 +25,11 @@ register(process.env.SERVICE_WORKER_FILE, {
 
   updatefound(registration) {
     console.log("New content is downloading.");
-    window.location.reload(true);
   },
 
   updated(registration) {
     console.log("New content is available; please refresh.");
+    window.location.reload(true);
   },
 
   offline() {

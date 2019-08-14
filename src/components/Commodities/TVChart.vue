@@ -69,7 +69,6 @@ export default {
     async createChartContainer(market) {
       this.loading = true;
       setTimeout(() => {
-        console.log("Too long");
         if (this.loading) {
           this.errored = true;
         }

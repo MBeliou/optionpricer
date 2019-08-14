@@ -17,8 +17,8 @@ export default {
       grid: {
         top: 30,
         bottom: 60,
-        left: 30,
-        right: 30
+        left: 60,
+        right: 0
       },
       tooltip: {
         trigger: "axis"
